@@ -1,0 +1,25 @@
+#stopwatch #timer{
+  font-weight:bold;
+}
+#stopwatch,#stopwatch #laps{
+  display:grid;
+  grid-auto-flow:line;
+}
+#stopwatch{
+  width:10em;
+  text-align:center;
+  border:1px solid black;
+  border-radius:.75em;
+  padding:.5em;
+}
+#stopwatch #laps{
+  margin-top:1em;
+  font-family:monospace;
+  font-size:1.5em;
+}
+#stopwatch #laps #timer{
+  margin-bottom:.5em;
+}
+#stopwatch button{
+  font-size:small;
+}
