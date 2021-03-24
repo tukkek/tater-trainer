@@ -1,7 +1,6 @@
 import * as routine from './routine.js'
 
-const INTERACT=document.querySelector('#pdlock .interact')
-const SKIP=document.querySelector('#pdlock .skip')
+const PROMPT=document.querySelector('#pdlock .prompt')
 const BUTTONS=document.querySelector('#pdlock .buttons')
 const SOLUTION='0131 4011 0513 4312'
 
@@ -11,27 +10,18 @@ export class PdLock extends routine.Routine{
     super('pdlock')
     this.buttons=Array.from(this.view.querySelectorAll('.buttons button'))
     this.current=0
-    this.interact=true
-    this.skip=false
+    this.prompt=true
     this.solution=Array.from(SOLUTION)
   }
   
   update(delta=false){
-    if(this.interact){
-      INTERACT.classList.remove('hidden')
-      SKIP.classList.add('hidden')
+    if(this.prompt){
+      PROMPT.classList.remove('hidden')
       BUTTONS.classList.add('hidden')
       return
     }
-    if(this.skip){
-      INTERACT.classList.add('hidden')
-      SKIP.classList.remove('hidden')
-      BUTTONS.classList.add('hidden')
-      return
-    }
-    INTERACT.classList.add('hidden')
     BUTTONS.classList.remove('hidden')
-    SKIP.classList.add('hidden')
+    PROMPT.classList.add('hidden')
     if(delta){
       this.current+=delta
       if(this.current<0) this.current=this.buttons.length-1
@@ -43,8 +33,7 @@ export class PdLock extends routine.Routine{
   setup(){
     super.setup()
     this.current=0
-    this.interact=true
-    this.skip=false
+    this.prompt=true
     this.solution=Array.from(SOLUTION)
     this.update()
   }
@@ -59,14 +48,8 @@ export class PdLock extends routine.Routine{
       this.setup()
       return
     }
-    if(this.interact){
-      this.interact=false
-      this.skip=true
-      this.update()
-      return
-    }
-    if(this.skip){
-      this.skip=false
+    if(this.prompt){
+      this.prompt=false
       this.update()
       return
     }
@@ -84,7 +67,7 @@ export class PdLock extends routine.Routine{
     this.correct()
     this.current=0
     if(this.solution[0]==' '){
-      this.interact=true
+      this.prompt=true
       this.solution.shift()
     }
     this.update()
