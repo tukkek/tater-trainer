@@ -25,11 +25,13 @@ export class Routine{
  
  wrong(){
     this.stop()
+    stopwatch.resetstreak()
     new Audio('./sound/wrong.wav').play()
   }
   
   done(){
     this.lap()
+    stopwatch.addstreak()
     new Audio('./sound/done.wav').play()
   }
 }

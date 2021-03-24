@@ -1,7 +1,7 @@
 const VIEW=document.querySelector('#stopwatch')
 const LAP=VIEW.querySelector('template.lap').content.childNodes[0]
 const LAPS=VIEW.querySelector('#laps')
-const STREAK=VIEW.querySelector('.streak span')
+const STREAK=VIEW.querySelector('#streak span')
 const TICK=50
 
 var timer=false
@@ -49,9 +49,14 @@ export function stop(){
   time=false
 }
 
-export function bump(){
+export function addstreak(){
   streak+=1
   STREAK.innerHTML=streak
+}
+
+export function resetstreak(){
+  streak=0
+  STREAK.innerHTML=0
 }
 
 setInterval(tick,TICK)

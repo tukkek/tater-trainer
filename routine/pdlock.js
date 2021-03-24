@@ -50,7 +50,6 @@ export class PdLock extends routine.Routine{
     }
     if(this.prompt){
       this.prompt=false
-      //this.correct()
       this.update()
       return
     }
