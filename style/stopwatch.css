@@ -8,9 +8,8 @@
 #stopwatch{
   width:10em;
   text-align:center;
-  border:1px solid black;
-  border-radius:.75em;
-  padding:.5em;
+  top:1em;
+  left:1em;
 }
 #stopwatch #laps{
   margin-top:1em;
@@ -19,6 +18,10 @@
 }
 #stopwatch #laps #timer{
   margin-bottom:.5em;
+}
+#stopwatch #streak{
+  margin-bottom:.5em;
+  font-weight:bold;
 }
 #stopwatch button{
   font-size:small;

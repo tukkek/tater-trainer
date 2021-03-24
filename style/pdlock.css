@@ -1,0 +1,8 @@
+#pdlock{
+  width:80%;
+  text-align:center;
+}
+#pdlock .buttons{
+  display:grid;
+  grid-auto-flow:column;
+}

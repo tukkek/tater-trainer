@@ -1,10 +1,12 @@
 const VIEW=document.querySelector('#stopwatch')
 const LAP=VIEW.querySelector('template.lap').content.childNodes[0]
-const LAPS=document.querySelector('#laps')
+const LAPS=VIEW.querySelector('#laps')
+const STREAK=VIEW.querySelector('.streak span')
 const TICK=50
 
 var timer=false
 var time=false
+var streak=0
 
 function addlap(time=0){
   let l=LAP.cloneNode(true)
@@ -33,17 +35,23 @@ function tick(){
 }
 
 export function start(){
+  if(time) return
   time=Date.now()
   for(let l of Array.from(LAPS.childNodes).slice(1)) l.remove()
 }
 
 export function lap(){
-  if(!time) return
+  if(!time) start()
   addlap(Date.now()-time)
 }
 
 export function stop(){
   time=false
+}
+
+export function bump(){
+  streak+=1
+  STREAK.innerHTML=streak
 }
 
 setInterval(tick,TICK)

@@ -1,0 +1,35 @@
+.hidden{
+  display:none!important;
+}
+.panel{
+  border:1px solid white;
+  border-radius:.75em;
+  padding:.5em;
+  position:fixed;
+}
+.routine{
+  position:fixed;
+  bottom:1em;
+  right:1em;
+  font-size:2em;
+}
+.routine button{
+  font-size:1em;
+  background-color:black;
+  color:white;
+  border:0;
+  outline:none;
+  font-family:monospace;
+}
+.routine button:before{
+  content:"> ";
+  visibility:hidden;
+}
+.routine button:focus:before{
+  border:0;
+  visibility:visible;
+}
+body{
+  background-color:black;
+  color:white;
+}
